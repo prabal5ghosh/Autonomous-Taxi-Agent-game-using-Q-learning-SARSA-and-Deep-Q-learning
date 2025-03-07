@@ -11,7 +11,8 @@ Both functions create a Q‑table with shape (500, 6) (since Taxi‑v3 has 500 s
 – In Q‑Learning the update uses the maximum Q‑value from the next state.
 – In SARSA the update uses the Q‑value of the action actually taken (on‑policy).
 In both cases, an epsilon‑greedy policy controls exploration and epsilon is decayed over episodes.
-	2. Deep Q‑Learning (DQN):
+
+ 2. Deep Q‑Learning (DQN):
 – The state (an integer from 0 to 499) is converted into a one‑hot encoded vector.
 – A simple neural network approximates Q‑values.
 – A replay memory is used to sample batches and update the network using the MSE loss between current Q‑values and targets computed from the target network.
