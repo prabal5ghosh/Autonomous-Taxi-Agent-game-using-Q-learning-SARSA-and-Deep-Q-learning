@@ -20,4 +20,3 @@ In both cases, an epsilon‑greedy policy controls exploration and epsilon is de
 Separate evaluation functions run the learned policy (greedily) and compute the mean reward over many episodes.
 	4. Main Function:
 The script prompts you for an algorithm choice, trains the corresponding agent, plots the training rewards, and prints the evaluation mean reward.
-![image](https://github.com/user-attachments/assets/bab74d48-8085-4113-9c6c-dd25f6050ea7)
