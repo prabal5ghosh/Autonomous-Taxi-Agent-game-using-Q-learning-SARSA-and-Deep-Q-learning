@@ -3,7 +3,7 @@ We implement Q-learning, SARSA, and Deep Q-learning in this game. we compare the
 
 
 
-Python script that implements three different reinforcement learning algorithms for the Taxi‑v3 environment: Q‑Learning (off‑policy), SARSA (on‑policy), and Deep Q‑Learning (DQN using PyTorch). we can run the script and choose which algorithm to train and evaluate by entering one of the following strings: "q_learning", "sarsa", or "dqn"![image](https://github.com/user-attachments/assets/2813b5d0-3a93-4e7e-948a-c1885cbd11ad)
+Python script that implements three different reinforcement learning algorithms for the Taxi‑v3 environment: Q‑Learning (off‑policy), SARSA (on‑policy), and Deep Q‑Learning (DQN using PyTorch). we can run the script and choose which algorithm to train and evaluate by entering one of the following strings: "q_learning", "sarsa", or "dqn".
 
 
 	1. Q‑Learning and SARSA:
