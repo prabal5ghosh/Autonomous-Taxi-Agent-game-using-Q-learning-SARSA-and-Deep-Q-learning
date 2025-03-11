@@ -26,7 +26,7 @@ The script prompts you for an algorithm choice, trains the corresponding agent, 
 
 
 
-This Python project implements three different Reinforcement Learning (RL) algorithms—Q-Learning, SARSA, and Deep Q-Networks (DQN)—to solve the **Taxi-v3** environment from OpenAI's Gym library. Below, I provide a detailed explanation of the code, the reinforcement learning concepts applied, and how each algorithm operates.
+This project implements three different Reinforcement Learning (RL) algorithms—Q-Learning, SARSA, and Deep Q-Networks (DQN)—to solve the **Taxi-v3** environment from OpenAI's Gym library. Below, I provide a detailed explanation of the code, the reinforcement learning concepts applied, and how each algorithm operates.
 
 ---
 
@@ -59,7 +59,7 @@ The `Taxi-v3` environment is a grid-based game where a taxi agent must:
 
 ---
 
-## **2. Code Breakdown**
+## **2.
 The code follows a structured pipeline for training RL agents and evaluating their performance.
 
 ### **Libraries Used**
