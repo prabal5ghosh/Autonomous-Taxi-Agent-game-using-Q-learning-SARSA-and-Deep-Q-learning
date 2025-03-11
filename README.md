@@ -154,7 +154,7 @@ The `main()` function allows the user to choose **Q-learning, SARSA, or DQN** an
 ------------------
 
 
-This problem is modeled as a Markov Decision Process (MDP) with:
+modeled as a Markov Decision Process (MDP) with:
 
 States (S): The environment consists of 500 states (25 taxi positions × 5 passenger locations × 4 possible destinations).
 Actions (A): The agent can take 6 discrete actions:
