@@ -148,3 +148,26 @@ The `main()` function allows the user to choose **Q-learning, SARSA, or DQN** an
 | DQN | Function Approximation | Scales better | Best in large state spaces |
 
 
+
+
+
+------------------
+
+
+This problem is modeled as a Markov Decision Process (MDP) with:
+
+States (S): The environment consists of 500 states (25 taxi positions × 5 passenger locations × 4 possible destinations).
+Actions (A): The agent can take 6 discrete actions:
+Move South (0)
+Move North (1)
+Move East (2)
+Move West (3)
+Pick up passenger (4)
+Drop off passenger (5)
+Rewards (R):
++20 points for successfully picking up and dropping off the passenger.
+-1 point for each move (to encourage efficiency).
+-10 points for illegal actions (e.g., trying to drop off a passenger at the wrong location or picking up when there is no passenger).
+Transition Dynamics (T): The environment transitions between states based on the agent’s actions.
+Policy (π): A mapping from states to actions, representing the agent's strategy.
+
