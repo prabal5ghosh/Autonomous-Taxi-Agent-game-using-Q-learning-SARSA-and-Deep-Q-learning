@@ -1,6 +1,8 @@
   <a href="https://univ-cotedazur.eu/msc/msc-data-science-and-artificial-intelligence" target="_blank" rel="noreferrer">
     <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fa/Logo-univ-nice-cote-dazur.svg/587px-Logo-univ-nice-cote-dazur.svg.png?20211016184305"  alt="Université Côte d'Azur" align="center"/>
   </a>
+
+  
 # Autonomous Taxi Agent Game using Q-learning, SARSA, Deep Q-learning, and Value Iteration
 This project implements four different reinforcement learning algorithms—Q-Learning, SARSA, Deep Q-Networks (DQN), and Value Iteration—to solve the **Taxi-v3** environment from OpenAI's Gym library. The goal is to compare the performance of these algorithms in training an autonomous taxi agent. Below, I provide a detailed explanation of the code, the reinforcement learning concepts applied, and how each algorithm operates.
 
