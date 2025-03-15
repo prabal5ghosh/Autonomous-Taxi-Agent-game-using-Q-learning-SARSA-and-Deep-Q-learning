@@ -5,7 +5,7 @@ This project implements four different reinforcement learning algorithms—Q-Lea
 
 
 
-## **1. Understanding the Taxi-v3 Environment**
+## **Understanding the Taxi-v3 Environment**
 The `Taxi-v3` environment is a grid-based game where a taxi agent must:
 - Pick up a passenger from one of the predefined locations.
 - Navigate to the passenger’s destination while avoiding penalties.
@@ -32,9 +32,7 @@ The `Taxi-v3` environment is a grid-based game where a taxi agent must:
 - **-10** for trying to pick up/drop off incorrectly.
 - **-1** for each movement (to encourage efficiency).
 
----
-
-## **2.
+## 
 The code follows a structured pipeline for training RL agents and evaluating their performance.
 
 ### **Libraries Used**
@@ -44,12 +42,7 @@ The code follows a structured pipeline for training RL agents and evaluating the
 - `matplotlib.pyplot`: Plots the learning curves.
 
 ---
-   1. Q‑Learning and SARSA:
-Both functions create a Q‑table with shape (500, 6) (since Taxi‑v3 has 500 states and 6 actions).
-– In Q‑Learning the update uses the maximum Q‑value from the next state.
-– In SARSA the update uses the Q‑value of the action actually taken (on‑policy).
-In both cases, an epsilon‑greedy policy controls exploration and epsilon is decayed over episodes.
-## **3. Q-Learning Algorithm**
+## **1. Q-Learning Algorithm**
 **Q-Learning** is an off-policy **model-free** RL algorithm that updates the Q-value using the Bellman equation:
 \[
 Q(s, a) = Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
@@ -70,9 +63,8 @@ where:
   - If the episode ends (`done`), the loop breaks.
   - **Epsilon decay** is applied to gradually shift from exploration to exploitation.
 
----
 
-## **4. SARSA Algorithm**
+## **2. SARSA Algorithm**
 **SARSA** (State-Action-Reward-State-Action) is an **on-policy** RL algorithm. It updates the Q-values differently from Q-Learning:
 \[
 Q(s, a) = Q(s, a) + \alpha \left[ r + \gamma Q(s', a') - Q(s, a) \right]
@@ -83,9 +75,13 @@ The main difference is that instead of taking the **max** Q-value of the next st
 - The **SARSA** function follows the same structure as Q-learning but selects the next action **before updating the Q-table**.
 - The update rule uses **the actual next action chosen** instead of the greedy maximum.
 
----
+##
+Both functions create a Q‑table with shape (500, 6) (since Taxi‑v3 has 500 states and 6 actions).
+– In Q‑Learning the update uses the maximum Q‑value from the next state.
+– In SARSA the update uses the Q‑value of the action actually taken (on‑policy).
+In both cases, an epsilon‑greedy policy controls exploration and epsilon is decayed over episodes.
 
-## **5. Deep Q-Learning (DQN)**
+## **3. Deep Q-Learning (DQN)**
 DQN replaces the Q-table with a **neural network** that estimates Q-values. It overcomes the problem of large state-action spaces where maintaining a Q-table becomes infeasible.
 
 ### **Neural Network**
@@ -111,8 +107,7 @@ A separate **target network** is updated periodically to **stabilize training** 
   - **Gradient descent** is used to optimize the network.
   - The **target network is updated** periodically.
 
----
-#### 6. Value Iteration Algorithm
+## *4. Value Iteration Algorithm*
 Value Iteration is a dynamic programming algorithm used to compute the optimal policy by iteratively improving the value function.
 
 **Implementation:**
@@ -124,8 +119,8 @@ Value Iteration is a dynamic programming algorithm used to compute the optimal p
 **Visualization:**
 - Plot the convergence of value iteration.
 - Animate the optimal policy execution in the Taxi-v3 environment.
-
-#### 7. Training and Evaluation
+---
+##  Training and Evaluation
 The `main()` function allows the user to choose Q-learning, SARSA, DQN, or Value Iteration and trains the selected agent.
 
 **Training:**
@@ -146,22 +141,4 @@ The project models the Taxi-v3 environment as a Markov Decision Process (MDP) wi
 
 
 ----------------------------------------------------
-
-
-modeled as a Markov Decision Process (MDP) with:
-
-States (S): The environment consists of 500 states (25 taxi positions × 5 passenger locations × 4 possible destinations).
-Actions (A): The agent can take 6 discrete actions:
-Move South (0)
-Move North (1)
-Move East (2)
-Move West (3)
-Pick up passenger (4)
-Drop off passenger (5)
-Rewards (R):
-+20 points for successfully picking up and dropping off the passenger.
--1 point for each move (to encourage efficiency).
--10 points for illegal actions (e.g., trying to drop off a passenger at the wrong location or picking up when there is no passenger).
-Transition Dynamics (T): The environment transitions between states based on the agent’s actions.
-Policy (π): A mapping from states to actions, representing the agent's strategy.
 
