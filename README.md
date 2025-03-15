@@ -1,34 +1,9 @@
-# Autonomous-Taxi-Agent-game-using-Q-learning-SARSA-and-Deep-Q-learning
-We implement Q-learning, SARSA, and Deep Q-learning in this game. we compare their performance.
-
-
-
-Python script that implements three different reinforcement learning algorithms for the Taxi‑v3 environment: Q‑Learning (off‑policy), SARSA (on‑policy), and Deep Q‑Learning (DQN using PyTorch). we can run the script and choose which algorithm to train and evaluate by entering one of the following strings: "q_learning", "sarsa", or "dqn".
-
-
-   1. Q‑Learning and SARSA:
-Both functions create a Q‑table with shape (500, 6) (since Taxi‑v3 has 500 states and 6 actions).
-– In Q‑Learning the update uses the maximum Q‑value from the next state.
-– In SARSA the update uses the Q‑value of the action actually taken (on‑policy).
-In both cases, an epsilon‑greedy policy controls exploration and epsilon is decayed over episodes.
-
- 2. Deep Q‑Learning (DQN):
-– The state (an integer from 0 to 499) is converted into a one‑hot encoded vector.
-– A simple neural network approximates Q‑values.
-– A replay memory is used to sample batches and update the network using the MSE loss between current Q‑values and targets computed from the target network.
-– The target network is updated every few episodes.
-	3. Evaluation:
-Separate evaluation functions run the learned policy (greedily) and compute the mean reward over many episodes.
-	4. Main Function:
-The script prompts you for an algorithm choice, trains the corresponding agent, plots the training rewards, and prints the evaluation mean reward.
+# Autonomous Taxi Agent Game using Q-learning, SARSA, Deep Q-learning, and Value Iteration
+This project implements four different reinforcement learning algorithms—Q-Learning, SARSA, Deep Q-Networks (DQN), and Value Iteration—to solve the **Taxi-v3** environment from OpenAI's Gym library. The goal is to compare the performance of these algorithms in training an autonomous taxi agent. Below, I provide a detailed explanation of the code, the reinforcement learning concepts applied, and how each algorithm operates.
 
 
 
 
-
-This project implements three different Reinforcement Learning (RL) algorithms—Q-Learning, SARSA, and Deep Q-Networks (DQN)—to solve the **Taxi-v3** environment from OpenAI's Gym library. Below, I provide a detailed explanation of the code, the reinforcement learning concepts applied, and how each algorithm operates.
-
----
 
 ## **1. Understanding the Taxi-v3 Environment**
 The `Taxi-v3` environment is a grid-based game where a taxi agent must:
@@ -69,7 +44,11 @@ The code follows a structured pipeline for training RL agents and evaluating the
 - `matplotlib.pyplot`: Plots the learning curves.
 
 ---
-
+   1. Q‑Learning and SARSA:
+Both functions create a Q‑table with shape (500, 6) (since Taxi‑v3 has 500 states and 6 actions).
+– In Q‑Learning the update uses the maximum Q‑value from the next state.
+– In SARSA the update uses the Q‑value of the action actually taken (on‑policy).
+In both cases, an epsilon‑greedy policy controls exploration and epsilon is decayed over episodes.
 ## **3. Q-Learning Algorithm**
 **Q-Learning** is an off-policy **model-free** RL algorithm that updates the Q-value using the Bellman equation:
 \[
@@ -133,25 +112,40 @@ A separate **target network** is updated periodically to **stabilize training** 
   - The **target network is updated** periodically.
 
 ---
+#### 6. Value Iteration Algorithm
+Value Iteration is a dynamic programming algorithm used to compute the optimal policy by iteratively improving the value function.
 
-## **6. Training and Evaluation**
-The `main()` function allows the user to choose **Q-learning, SARSA, or DQN** and trains the selected agent.
+**Implementation:**
+- Initialize the value function for all states to zero.
+- Iteratively update the value function using the Bellman optimality equation.
+- Convergence is achieved when the maximum change in value function is below a threshold.
+- Derive the optimal policy from the converged value function.
 
-- **Training**: Runs multiple episodes and updates policies.
-- **Evaluation**: Runs episodes without exploration and computes the average reward.
+**Visualization:**
+- Plot the convergence of value iteration.
+- Animate the optimal policy execution in the Taxi-v3 environment.
 
-### **Performance Comparison**
-| Algorithm | Learning Type | Convergence Speed | Performance |
-|-----------|--------------|-------------------|-------------|
-| Q-Learning | Off-policy | Faster | High |
-| SARSA | On-policy | Slower | Safer (avoids risky actions) |
-| DQN | Function Approximation | Scales better | Best in large state spaces |
+#### 7. Training and Evaluation
+The `main()` function allows the user to choose Q-learning, SARSA, DQN, or Value Iteration and trains the selected agent.
+
+**Training:**
+- Runs multiple episodes and updates policies.
+
+**Evaluation:**
+- Runs episodes without exploration and computes the average reward.
+
+#### Performance Comparison
+| Algorithm       | Learning Type       | Convergence Speed | Performance                |
+|-----------------|---------------------|-------------------|----------------------------|
+| Q-Learning      | Off-policy          | Faster            | High                       |
+| SARSA           | On-policy           | Slower            | Safer (avoids risky actions)|
+| DQN             | Function Approximation | Scales better   | Best in large state spaces |
+| Value Iteration | Dynamic Programming | Fast              | Optimal policy             |
+
+The project models the Taxi-v3 environment as a Markov Decision Process (MDP) with states, actions, rewards, transition dynamics, and policies. The implementation and comparison of these algorithms provide insights into their effectiveness in different scenarios.
 
 
-
-
-
-------------------
+----------------------------------------------------
 
 
 modeled as a Markov Decision Process (MDP) with:
