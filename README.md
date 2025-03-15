@@ -44,9 +44,7 @@ The code follows a structured pipeline for training RL agents and evaluating the
 ---
 ## **1. Q-Learning Algorithm**
 **Q-Learning** is an off-policy **model-free** RL algorithm that updates the Q-value using the Bellman equation:
-\[
-Q(s, a) = Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
-\]
+\[ Q(s, a) = Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right] \]
 where:
 - \( Q(s, a) \) is the Q-value for state \( s \) and action \( a \).
 - \( r \) is the immediate reward.
@@ -66,9 +64,7 @@ where:
 
 ## **2. SARSA Algorithm**
 **SARSA** (State-Action-Reward-State-Action) is an **on-policy** RL algorithm. It updates the Q-values differently from Q-Learning:
-\[
-Q(s, a) = Q(s, a) + \alpha \left[ r + \gamma Q(s', a') - Q(s, a) \right]
-\]
+\[ Q(s, a) = Q(s, a) + \alpha \left[ r + \gamma Q(s', a') - Q(s, a) \right] \]
 The main difference is that instead of taking the **max** Q-value of the next state, it follows the next chosen action.
 
 ### **Implementation in Code**
@@ -101,9 +97,7 @@ A separate **target network** is updated periodically to **stabilize training** 
   - The transition (`state, action, reward, next_state, done`) is stored in **Replay Memory**.
   - If the memory is large enough, a **random batch** is sampled to update the network.
   - The **Bellman loss function** is computed:
-    \[
-    \text{loss} = (Q_{\text{target}} - Q_{\text{policy}})^2
-    \]
+    \[ \text{loss} = (Q_{\text{target}} - Q_{\text{policy}})^2 \]
   - **Gradient descent** is used to optimize the network.
   - The **target network is updated** periodically.
 
